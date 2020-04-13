@@ -1,0 +1,37 @@
+{
+  "name": "config-refactor",
+  "version": "1.0.0",
+  "description": "A refactoring tool for configuration files of node-config.",
+  "main": "src/refactor.js",
+  "bin": {
+    "config-refactor": "bin/index.js"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "grassedge",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grassedge/node-config-refactor.git"
+  },
+  "files": [
+    "README.md",
+    "bin",
+    "lib",
+    "package-lock.json",
+    "package.json"
+  ],
+  "license": "ISC",
+  "dependencies": {
+    "config": "^3.3.1",
+    "lodash": "^4.17.15",
+    "minimist": "^1.2.5"
+  },
+  "bugs": {
+    "url": "https://github.com/grassedge/node-config-refactor/issues"
+  },
+  "devDependencies": {
+    "jest": "^25.3.0"
+  },
+  "homepage": "https://github.com/grassedge/node-config-refactor#readme"
+}
