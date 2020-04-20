@@ -38,7 +38,7 @@ For example, from following configurations,
 
 Generates following files.
 
-```
+```js
 # default.json
 { a: "default" }
 
@@ -78,12 +78,52 @@ If your environments are like followings,
 
 Execute the following command.
 
-```
+```sh
 $ NODE_CONFIG_DIR=... npx config-refactor \
   -c development:foo \
   -c development:bar \
   -c production:foo \
   -c production:bar
+```
+
+By default, `config-refactor` outputs generated JSON to the stdout.
+To output config files, use `-o/--out` option.
+
+```sh
+$ NODE_CONFIG_DIR=... npx config-refactor \
+  ... \
+  -o path/to/configDir
+```
+
+### Atomic config object
+
+Sometimes we want to treat data object as a set.
+
+```js
+# config A
+{ "obj": { "a": "A", "x": "common" } }
+
+# config B
+{ "obj": { "b": "B", "x": "common" } }
+```
+
+if keys are specified by `-a/--atomic` option, the value is treated as atomic.
+
+```sh
+$ config-refactor ...
+# outputs following
+{
+  "default": { "obj": { "x": "common" } }
+  "A": { "obj": { "a": "A" } }
+  "B": { "obj": { "b": "B" } }
+}
+
+$ config-refactor ... --atomic obj
+{
+  "default": {}
+  "A": { "obj": { "a": "A", "x": "common" } }
+  "B": { "obj": { "b": "B", "x": "common" } }
+}
 ```
 
 ## Note
