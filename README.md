@@ -1,6 +1,6 @@
 # node-config-refactor
 
-`config-refactor` helps you to refactor your configurations which you load by node-config.
+`config-refactor` helps you to refactor your configurations which you load by [node-config](https://github.com/lorenwest/node-config).
 This tool generates config files from your actual configurations.
 
 For example, from following configurations,
