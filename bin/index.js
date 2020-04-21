@@ -32,8 +32,8 @@ const { refactor } = require('../lib/refactor');
 
     const refactored = refactor(targets, { atomic });
 
-    refactored.map(c => {
-        if (argv.out) {
+    if (argv.out) {
+        refactored.map(c => {
             const name = [
                 c.deployment || 'default',
                 ...(c.instance ? [c.instance] : [])
@@ -43,10 +43,10 @@ const { refactor } = require('../lib/refactor');
                 `${argv.out}/${name}.json`,
                 JSON.stringify(c.config, null, '  ')
             );
-        } else {
-            console.log(JSON.stringify(c.config, null, '  '));
-        }
-    })
+        })
+    } else {
+        console.log(JSON.stringify(refactored, null, '  '));
+    }
 
 })(minimist(process.argv.slice(2), {
     "string": [
