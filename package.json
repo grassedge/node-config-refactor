@@ -1,6 +1,6 @@
 {
   "name": "config-refactor",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A refactoring tool for configuration files of node-config.",
   "main": "src/refactor.js",
   "bin": {
@@ -33,5 +33,6 @@
   "devDependencies": {
     "jest": "^25.3.0"
   },
+  "keywords": ["refactoring", "tool", "node-config", "config", "configuration"],
   "homepage": "https://github.com/grassedge/node-config-refactor#readme"
 }
